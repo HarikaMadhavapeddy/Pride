@@ -55,6 +55,7 @@ const router = createBrowserRouter([
 
 function App() {
   const dispatch=useDispatch();
+  console.log('Harika');
   useEffect(()=>{
     console.log(auth);
     const subscription=auth.onAuthStateChanged(user=>{
