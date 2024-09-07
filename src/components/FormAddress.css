@@ -1,0 +1,23 @@
+.AddressForm{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.AddressForm input{
+    width: 20vw;
+    padding: 10px 10px;
+    margin: 10px 10px;
+}
+.AddressForm button{
+    border: none;
+    margin: 10px 10px;
+    padding: 5px 15px;
+    border-radius: 5px 5px;
+    cursor: pointer;
+    font-size: large;
+    font-weight: 600;
+    color: white;
+    background-color: purple;
+}

@@ -1,0 +1,109 @@
+.header-container{
+    display: flex;
+    margin: 10px 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-container img{
+    width: 156px;
+    height: 45px;
+    object-fit: cover;   
+}
+.header-container #search-box{
+    width: 400px;
+    height: 40px;
+    border: 1px, solid, grey;
+    border-radius: 5px;
+    padding-left: 40px;
+    font-size: medium;
+    color: gray;
+    
+}
+.header-container-middle{
+    position: relative;
+}
+.header-container #magnifier{
+    position: absolute;
+    top: 8px;
+  left: 0;
+  width: 20px;
+  height: 10px;
+}
+#magnifier-icon{
+    width: 30px;
+    height: 25px;
+    padding-left: 5px;
+}
+.header-container-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-container-right p{
+    border-right: 1px solid black ;
+    padding-right: 15px;
+    padding-left: 15px;
+    font-family:Georgia;
+    font-size: large;
+    color: rgb(67, 63, 63);
+}
+.header-container-right #profile-text{
+    font-size: medium;
+}
+.header-container-right #profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+.header-container-right #cart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 10px;
+    position: relative;
+}
+#cart-quantity{
+position: absolute;
+right: 16px;
+top: -10px;
+color: purple;
+border-radius: 5px;
+font-weight: 600;
+}
+#cart-icon{
+    font-size: 30px;
+}
+.header-container-right a{
+    text-decoration: none;
+    color: rgb(67, 63, 63);
+}
+#HeaderLogo{
+    font-size: 50px;
+    font-weight: 600;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: purple;
+    padding: 10px 0;
+}
+.header-container-right-Nav{
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(52, 51, 51, 0.2);
+    z-index: 1;
+    margin: 20px 0;
+    border: solid 0.25px rgb(141, 140, 140);
+    border-radius: 10px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    padding: 20px 0px;
+  }
+.dropdown:hover .header-container-right-Nav {display: block;}
+.dropdown:hover #profile {color: purple;}

@@ -1,0 +1,55 @@
+.SignUppage{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(253, 240, 232);
+}
+.SignUpPageForm{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: -5px auto;
+    width: 40vw;
+    padding: 2vw 1vw;
+    background-color: rgb(125, 47, 143);
+    border-radius: 10px 10px;
+}
+#SignUpPageEmail{
+    padding: 10px 5px;
+    margin: 10px 10px;
+}
+#SignUpPagePwd{
+    padding: 10px 5px;
+    margin: 10px 10px;
+}
+#SignUpPageCfmPwd{
+    padding: 10px 5px;
+    margin: 10px 10px;
+}
+#SignUpPageName{
+    padding: 10px 5px;
+    margin: 10px 10px;
+}
+.SignUpPageButton{
+    border: none;
+    margin: 10px 10px;
+    padding: 5px 15px;
+    border-radius: 5px 5px;
+    cursor: pointer;
+    font-size: large;
+    font-weight: 600;
+    color: rgb(125, 47, 143);
+}
+.SignUppage-user-box input{
+    width: 540px;
+   }
+.SignUppage-user-box{
+    position: relative;
+}
+.password-toggle-icon{
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

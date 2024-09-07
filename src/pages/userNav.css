@@ -1,0 +1,13 @@
+.userNavContainer-span {
+    color: black;
+    padding: 12px 10px;
+    margin: 0 5px;
+    text-decoration: none;
+    display: flex;
+    justify-content: left;
+    border-bottom: solid 1px purple;
+  }
+.userNavContainer-span:hover{
+background-color: purple;
+color: white;
+  }
