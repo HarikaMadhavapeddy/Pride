@@ -40,33 +40,94 @@ const router = createBrowserRouter([
       //useLoaderdata() method can be used to retrive loader data within that object.
       //useRouteLoaderdata() method can be used to retrieve loader data from parent object.
       { path: "products/:productId", element: <ProductPage /> },
-      { path: "login", element: <PublicRoute><Login /></PublicRoute>},
-      {path:'signup', element: <PublicRoute><SignUp/></PublicRoute>},
-      {path:'forgetPwd',element:<ForgetPwd/>},
-      {path:'orders',element:<PrivateRoute><Orders/></PrivateRoute>},
-      {path:'profile',element:<PrivateRoute><Profile/></PrivateRoute>},
-      {path:'manageAddress',element:<PrivateRoute><ManageAddress/></PrivateRoute>},
-      {path:'address',element:<PrivateRoute><Address/></PrivateRoute>},
-      {path:'payment',element:<PrivateRoute><Payment/></PrivateRoute>},
-      {path:'manage',element:<PrivateRoute><ManageCards/></PrivateRoute>},
+      {
+        path: "login",
+        element: (
+          <PublicRoute>
+            <Login />
+          </PublicRoute>
+        ),
+      },
+      {
+        path: "signup",
+        element: (
+          <PublicRoute>
+            <SignUp />
+          </PublicRoute>
+        ),
+      },
+      { path: "forgetPwd", element: <ForgetPwd /> },
+      {
+        path: "orders",
+        element: (
+          <PrivateRoute>
+            <Orders />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "manageAddress",
+        element: (
+          <PrivateRoute>
+            <ManageAddress />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "address",
+        element: (
+          <PrivateRoute>
+            <Address />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "payment",
+        element: (
+          <PrivateRoute>
+            <Payment />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "manage",
+        element: (
+          <PrivateRoute>
+            <ManageCards />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);
 
 function App() {
-  const dispatch=useDispatch();
-  useEffect(()=>{
+  console.log("this is app js file");
+  const dispatch = useDispatch();
+  useEffect(() => {
     console.log(auth);
-    const subscription=auth.onAuthStateChanged(user=>{
+    const subscription = auth.onAuthStateChanged((user) => {
       console.log(user);
-      if(user){
-        dispatch(setUser({uid:user.uid,email:user.email,name:user.displayName}));
+      if (user) {
+        dispatch(
+          setUser({ uid: user.uid, email: user.email, name: user.displayName })
+        );
         dispatch(FetchAddress(user.uid));
-      }else {dispatch(clearUser())}
+      } else {
+        dispatch(clearUser());
+      }
     });
-    
+
     return subscription;
-  },[]);
+  }, []);
   return <RouterProvider router={router} />;
 }
 
