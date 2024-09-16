@@ -1,0 +1,38 @@
+.AddressPage-container {
+margin-top: 30px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  font-weight: 500;
+}
+.AddressBlock {
+  display: flex;
+  flex-direction: row;
+  border: 0.25px solid rgb(176, 171, 171);
+  width: 40vw;
+  height: 10vw;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.AddressBlock input{
+    cursor: pointer;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.AddressButton-container{
+display: flex;
+flex-direction: row;
+}
+.AddressButton{
+    margin: 30px 30px;
+    padding: 10px 10px;
+    background-color: purple;
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}

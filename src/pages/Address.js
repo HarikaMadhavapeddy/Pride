@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import FormAddress from "../components/FormAddress";
 import { AddAddress } from "../Redux/AddressSlice";
 import { toast } from "react-toastify";
+import './Address.css';
 
 export default function Address() {
   const { data, error, loading } = useSelector((state) => state.UserAddress);
@@ -16,7 +17,7 @@ export default function Address() {
   }
   function handleProceedToPayment(userSelectedAdress) {
     sessionStorage.setItem("address", JSON.stringify(userSelectedAdress));
-    navigate("/payment");
+    navigate("/payment",{state:{selectedAddress}});
   }
   function handleAddAddress(address) {
     Dispatch(AddAddress(address))
@@ -31,21 +32,28 @@ export default function Address() {
           {showForm ? (
             <FormAddress onSave={handleAddAddress} type="Save and Continue" handleCancel={() => setShowForm(false)}/>
           ) : (
-            <div>
+            <div className="AddressPage-container">
+              Select shipping address
               {data.map((address) => (
-                <span>
-                  <input
-                    type="radio"
+                <div className="AddressBlock">
+                  <input type="radio"
+                  name='address'
                     onChange={() => handleSelectAddress(address)}
                   />
-                  {address.adLn1},{address.adLn2},{address.state},
-                  {address.country},{address.pincode}
-                </span>
+                  <div>
+                    <p>{address.adLn1}<br/>{address.adLn2}<br/>{address.state}<br/>
+                    {address.country},{address.pincode}</p>
+                  </div>
+                  
+                </div>
               ))}
-              <button onClick={()=>setShowForm(true)}>Add new Address</button>
-              <button onClick={() => handleProceedToPayment(selectedAddress)}>
+              <div className="AddressButton-container">
+              <button className="AddressButton" onClick={()=>setShowForm(true)}>Add new Address</button>
+              <button className="AddressButton" onClick={() => handleProceedToPayment(selectedAddress)}>
                 Proceed to Payment
               </button>
+              </div>
+              
             </div>
           )}
         </>

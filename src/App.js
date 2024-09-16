@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       {path:'manageAddress',element:<PrivateRoute><ManageAddress/></PrivateRoute>},
       {path:'address',element:<PrivateRoute><Address/></PrivateRoute>},
       {path:'payment',element:<PrivateRoute><Payment/></PrivateRoute>},
-      {path:'manage',element:<PrivateRoute><ManageCards/></PrivateRoute>},
+      {path:'manageCards',element:<PrivateRoute><ManageCards/></PrivateRoute>},
     ],
   },
 ]);

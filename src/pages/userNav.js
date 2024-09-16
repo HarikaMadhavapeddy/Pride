@@ -25,33 +25,38 @@ export default function UserNav() {
         toast.success("Your account is deleted");
         navigate("/");
       })
-      .catch((error)=>toast.error(error));
+      .catch((error) => toast.error(error));
   }
-  function handleOrders(){
-    navigate('/orders');
+  function handleOrders() {
+    navigate("/orders");
   }
-  function handleProfile(){
-    navigate('/profile');
+  function handleProfile() {
+    navigate("/profile");
   }
-  function handleAddress(){
-    navigate('/manageAddress');
+  function handleAddress() {
+    navigate("/manageAddress");
   }
-  function handleManageCards(){
-
+  function handleManageCards() {
+    navigate("/manageCards");
   }
   return (
     <div className="userNavContainer">
-      <span className="userNavContainer-span" onClick={handleProfile}>Manage profile</span>
-      <span className="userNavContainer-span"onClick={handleAddress}>Manage address</span>
-      <span className="userNavContainer-span" onClick={handleManageCards}>Manage Cards</span>
-      <span className="userNavContainer-span" onClick={handleOrders}>Orders</span>
+      <span className="userNavContainer-span" onClick={handleProfile}>
+        Manage profile
+      </span>
+      <span className="userNavContainer-span" onClick={handleAddress}>
+        Manage address
+      </span>
+      <span className="userNavContainer-span" onClick={handleManageCards}>
+        Manage Cards
+      </span>
+      <span className="userNavContainer-span" onClick={handleOrders}>
+        Orders
+      </span>
       <span className="userNavContainer-span" onClick={handleLogout}>
         Logout
       </span>
-      <span
-        className="userNavContainer-span"
-        onClick={handleDelete}
-      >
+      <span className="userNavContainer-span" onClick={handleDelete}>
         Delete Account
       </span>
     </div>
