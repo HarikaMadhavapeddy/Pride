@@ -1,0 +1,56 @@
+.Orders-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:left;
+    margin-top: 30px;
+}
+.OrderDetails{
+    list-style: none;
+}
+.OrderItemDetails{
+    list-style: none;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+.OrderDetails-Item{
+    border-bottom: 1px solid rgb(198, 194, 194);
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.OrderDetailsLink{
+    text-decoration: none;
+    color: black;
+}
+.OrderItemDetails img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    padding-right: 30px;
+}
+.OrderItemDetails-single{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.StatusActive{
+    color: green;
+    font-size: large;
+    font-weight: 800;
+}
+.StatusDeactive{
+    color: rgb(182, 28, 28);
+    font-size: large;
+    font-weight: 800;
+}
+.StatusActive::before {
+    content: "✔";
+    font-size: 20px;
+    color: green;
+}
+.StatusDeactive::before {
+    content: "✘";
+    font-size: 20px;
+    color: rgb(182, 28, 28);
+}

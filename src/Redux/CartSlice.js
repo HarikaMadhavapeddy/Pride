@@ -90,7 +90,18 @@ const CartSlice = createSlice({
       };
       localStorage.setItem('Pride_cart',JSON.stringify(storage));
     },
+    clearCart:(state)=>{
+      state.item=[];
+      state.totalPrice=0;
+      state.totalQuantity=0;
+      const storage={
+        items: state.items,
+        totalPrice: state.totalPrice,
+        totalQuantity: state.totalQuantity
+      };
+      localStorage.setItem('Pride_cart',JSON.stringify(storage));
+    }
   },
 });
 export default CartSlice.reducer;
-export const { addItem, deleteItem, plusItem, minusItem } = CartSlice.actions;
+export const { addItem, deleteItem, plusItem, minusItem, clearCart } = CartSlice.actions;

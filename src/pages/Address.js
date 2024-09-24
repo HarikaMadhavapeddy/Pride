@@ -16,8 +16,8 @@ export default function Address() {
     setSelectedAddress(address);
   }
   function handleProceedToPayment(userSelectedAdress) {
-    sessionStorage.setItem("address", JSON.stringify(userSelectedAdress));
-    navigate("/payment",{state:{selectedAddress}});
+    //sessionStorage.setItem("address", JSON.stringify(userSelectedAdress));
+    navigate("/payment",{state:{userSelectedAdress}});
   }
   function handleAddAddress(address) {
     Dispatch(AddAddress(address))

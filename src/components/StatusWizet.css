@@ -1,0 +1,51 @@
+.statusWidget-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.statusWidget{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    background-color: rgb(212, 207, 207);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.line{
+    width: 80px;
+    height: 5px;
+    background-color: rgb(212, 207, 207);
+}
+.Active{
+    background-color: green;
+}
+.Deactive{
+    background-color: red;
+}
+.circle span{
+    font-size: 10px;
+    font-weight: 600;
+    position: absolute;
+    top: 60px;
+    width: 60px;
+    align-items: center;
+}
+.circle.Active::before {
+    content: "✔";
+    font-size: 20px;
+    color: white;
+}
+  .circle.Deactive::before {
+    content: "✘";
+    font-size: 20px;
+    color: white;
+}

@@ -46,7 +46,7 @@ export default function Header() {
               <span id="profile">
                 Hello!
                 <span id="profile-text">
-                  {user&&user.name.length > 5
+                  {user&&user?.name?.length > 5
                     ? user.name.substring(0, 6) + "..."
                     : user.name}
                 </span>

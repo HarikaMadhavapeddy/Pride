@@ -27,7 +27,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-console.log(process.env);
+console.log('harika');
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const database=getDatabase(app);

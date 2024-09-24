@@ -1,14 +1,25 @@
-import { get, push, ref } from "firebase/database";
+import { get, push, ref, set, update } from "firebase/database";
 import React, { useEffect, useState } from "react";
 import CreditCard from "../components/CreditCard";
 import { auth, database } from "../Firebase/Firebase";
 import "./Payment.css";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { GenerateDate } from "../components/Util";
+import random from "random";
+import { useDispatch, useSelector } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
+import { clearCart } from "../Redux/CartSlice";
+
 export default function Payment() {
   const [cardDetails, setCardDetails] = useState([]);
+  const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
   const [selectedPaymentCard, setSelectedPaymentCard] = useState(null);
+  const { items, totalPrice, totalQuantity } = useSelector(
+    (state) => state.shoppingCart
+  );
   const [loading, setLoading] = useState(true);
   const [enteredCvv, setEnteredCvv] = useState("");
   const [showForm, setShowForm] = useState(false);
@@ -47,16 +58,42 @@ export default function Payment() {
     );
     if (sessionData === "true") {
       if (CardDetailsToBeValidated.isValid) {
-        CreateOrder();
+        CreateOrder(CardDetailsToBeValidated);
       } else {
         toast.error("Invalid card details");
       }
     } else {
-      CreateOrder();
+      CreateOrder(CardDetailsToBeValidated);
     }
   }
-  function CreateOrder() {
-    console.log("Order created successfully");
+  function CreateOrder(OrderCardDetails) {
+    const myOrderDetails = {
+      orderDate: new Date().toISOString(),
+      estShippingDate: GenerateDate(random.int(1, 3)),
+      deliveryDate: GenerateDate(random.int(4, 7)),
+      items: items,
+      orderId: uuidv4(),
+      address: location?.state?.userSelectedAdress,
+      cardDetails: OrderCardDetails,
+      status: "pending",
+      totalPrice: totalPrice,
+      quantity: totalQuantity,
+    };
+    const orderRef = ref(
+      database,
+      `Orders/${auth.currentUser.uid}/${myOrderDetails.orderId}`
+    );
+    console.log(orderRef);
+    set(orderRef, myOrderDetails)
+      .then(() => {
+        console.log("Order created successfully", myOrderDetails);
+        return update(orderRef, { status: "confirmed" });
+      })
+      .then(() => {
+        dispatch(clearCart());
+        navigate("/orderSuccess", { state: { myOrderDetails } });
+      })
+      .catch((error) => navigate("/orderFail"));
   }
   return (
     <div>
@@ -95,6 +132,7 @@ export default function Payment() {
                   <button onClick={() => setShowForm(true)}>
                     Add new Card
                   </button>
+
                   <button
                     onClick={() => validateCardDetails(selectedPaymentCard)}
                     disabled={selectedPaymentCard?.cvc !== enteredCvv}

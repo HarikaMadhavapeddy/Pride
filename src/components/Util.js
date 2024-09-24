@@ -66,3 +66,20 @@ export function formatExpirationDate(value) {
 /*export function formatFormData(data) {
   return Object.keys(data).map(d => `${d}: ${data[d]}`);
 }*/
+export function GenerateDate(value){
+const today=new Date();
+const nextDay=new Date();
+nextDay.setDate(today.getDate() + value);
+return nextDay.toISOString();
+}
+export function FormatDate(value){
+const date=new Date(value);
+return date.toLocaleDateString('en-GB',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
+}
+export function GetCardLastDigits(number){
+  const arr=number.split(' ');
+  return arr[arr.length-1];
+}
+export function ShortFormatDate(value){
+  return value.toLocaleDateString('en-GB',{day:'2-digit',month:'short'});
+  }

@@ -22,6 +22,9 @@ import ManageAddress from "./pages/ManageAddress";
 import Address from "./pages/Address";
 import Payment from "./pages/Payment";
 import ManageCards from "./pages/ManageCards";
+import OrderSuccess from "./pages/OrderSuccess";
+import OrderFail from "./pages/OrderFail";
+import OrderDetails from "./pages/OrderDetails";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +52,9 @@ const router = createBrowserRouter([
       {path:'address',element:<PrivateRoute><Address/></PrivateRoute>},
       {path:'payment',element:<PrivateRoute><Payment/></PrivateRoute>},
       {path:'manageCards',element:<PrivateRoute><ManageCards/></PrivateRoute>},
+      {path:'orderSuccess',element:<PrivateRoute><OrderSuccess/></PrivateRoute>},
+      {path:'orderFail',element:<PrivateRoute><OrderFail/></PrivateRoute>},
+      { path: "orders/:orderId", element: <OrderDetails/> },
     ],
   },
 ]);
@@ -67,6 +73,7 @@ function App() {
     
     return subscription;
   },[]);
+  console.log('harika');
   return <RouterProvider router={router} />;
 }
 

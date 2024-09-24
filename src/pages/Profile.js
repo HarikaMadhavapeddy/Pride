@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../Redux/AuthSlice";
 import { toast } from "react-toastify";
 import "./Profile.css";
+import { CgProfile } from "react-icons/cg";
 
 export default function Profile() {
   const [name, setName] = useState();
@@ -70,36 +71,44 @@ export default function Profile() {
   }
   return (
     <div className="profile-conatiner">
-      <span>Update Profile</span>
-      <div className="profile-input">
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <button onClick={handleUpdateName} disabled={name ? false : true}>
-          Update Name
-        </button>
+      <div className="profile-label">
+        <CgProfile className="profile-icon" />
+        <span>Update Profile </span>
       </div>
-      <div className="profile-input">
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button onClick={handleUpdateEmail} disabled={email ? false : true}>
-          Update Email
-        </button>
-      </div>
-      <div className="profile-input">
-        <input
-          type="password"
-          value={pwd}
-          onChange={(e) => setPwd(e.target.value)}
-        />
-        <button onClick={handleUpdatePwd} disabled={pwd ? false : true}>
-          Update Password
-        </button>
+      <div className="profileInput-container">
+        <div className="profile-input">
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Update Name"
+          />
+          <button onClick={handleUpdateName} disabled={name ? false : true}>
+            Update
+          </button>
+        </div>
+        <div className="profile-input">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Update Email"
+          />
+          <button onClick={handleUpdateEmail} disabled={email ? false : true}>
+            Update
+          </button>
+        </div>
+        <div className="profile-input">
+          <input
+            type="password"
+            value={pwd}
+            onChange={(e) => setPwd(e.target.value)}
+            placeholder="Update Password"
+          />
+          <button onClick={handleUpdatePwd} disabled={pwd ? false : true}>
+            Update
+          </button>
+        </div>
       </div>
     </div>
   );
