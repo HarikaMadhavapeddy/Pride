@@ -12,7 +12,6 @@ export default function Orders() {
     get(orderRef)
       .then((snapshot) => {
         if (snapshot.exists()) {
-          //console.log(Object.values(snapshot.val()));
           setOrders(Object.values(snapshot.val()));
         }
       })
