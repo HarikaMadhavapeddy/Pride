@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { json } from "react-router-dom";
 
 const localStorageState=JSON.parse(localStorage.getItem('Pride_cart'));
 console.log(typeof(localStorageState));
