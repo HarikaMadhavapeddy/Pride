@@ -36,7 +36,7 @@ export default function Orders() {
                         <div className="OrderItemDetails">
                           {item.items.map((value) => (
                             <div className="OrderItemDetails-single">
-                            <img src={value.images[0]}/>
+                            <img src={value.images[0]} alt='img'/>
                             <p>{value.title}</p>
                             </div>
                             
