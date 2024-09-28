@@ -44,7 +44,7 @@ export default function Header() {
           <div className="dropdown">
             {user ? (
               <span id="profile">
-                Hello!
+                Hello
                 <span id="profile-text">
                   {user&&user?.name?.length > 5
                     ? user.name.substring(0, 6) + "..."
