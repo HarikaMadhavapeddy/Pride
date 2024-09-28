@@ -6,6 +6,7 @@
     display: flex;
     justify-content: left;
     border-bottom: solid 1px purple;
+    cursor: pointer;
   }
 .userNavContainer-span:hover{
 background-color: purple;
